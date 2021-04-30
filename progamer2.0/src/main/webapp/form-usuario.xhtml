@@ -46,16 +46,17 @@
 				
 				
 			    <f:facet name="footer">
-			        <p:commandButton icon="pi pi-check" value="Save" action="#{usuarioBean.save}"/>
+			        <p:commandButton icon="pi pi-check" value="Save" action="#{usuarioBean.save}" update="usuarios">
+			       		<p:ajax execute="@form" />
+			        </p:commandButton>
+
 			        <p:commandButton icon="pi pi-times" value="Cancel" styleClass="ui-button-secondary" style="margin-left: .5em"/>
 			    </f:facet>
 			</p:card>
-		</h:form>
-		
-		<!-- card com os usuarios -->
-		<h:form id="table-users">
-		    <div class="card">
-		        <p:dataTable  value="#{usuarioBean.usuarios}" var="usuario">
+
+			<!-- card com os usuarios -->
+		    	<div class="card">
+		        <p:dataTable id="usuarios" value="#{usuarioBean.usuarios}" var="usuario">
 		            <p:column headerText="Nome">
 		                <h:outputText value="#{usuario.nome}" />
 		            </p:column>
@@ -71,6 +72,8 @@
 		        </p:dataTable>
 		    </div>
 		</h:form>
+		
+
 		
 	</ui:define>
 		

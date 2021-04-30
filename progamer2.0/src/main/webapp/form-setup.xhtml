@@ -44,18 +44,15 @@
 				
 				
 			    <f:facet name="footer">
-			        <p:commandButton icon="pi pi-check" value="Save" action="#{setupBean.save}">
-			        	<p:ajax execute="form" update="table-setups"/>
+			        <p:commandButton icon="pi pi-check" value="Save" action="#{setupBean.save}" update="setups">
+			        	<p:ajax execute="@form" />
 			        </p:commandButton>
 			        <p:commandButton icon="pi pi-times" value="Cancel" styleClass="ui-button-secondary" style="margin-left: .5em"/>
 			    </f:facet>
 			</p:card>
-		</h:form>
-		
-		<!-- card com as publicacoes -->
-		<h:form class="card" id="table-setups" >
-		    <div >
-		        <p:dataTable   value="#{setupBean.setups}" var="setup">
+
+   			<div class="card">
+		        <p:dataTable id="setups" value="#{setupBean.setups}" var="setup">
 		            <p:column headerText="Name">
 		                <h:outputText value="#{setup.name}" />
 		            </p:column>
@@ -67,6 +64,10 @@
 		        </p:dataTable>
 		    </div>
 		</h:form>
+		
+	
+		 
+		
 		
 	</ui:define>
 		
